@@ -96,6 +96,7 @@ for phone_split in phone.split(">"):
 '전남': '061',
 '전북': '063'}
 
+#[] 안에 숫자는 0부터 시작
 date = "2020.11.01"
 date.split(".")[1]
 -> '11'
