@@ -1,0 +1,50 @@
+Pandas Series
+  pd.Series( [ data ] , index = [ index ])
+  series.사칙연산
+  series.index
+  series.value_counts()
+  series.isnull()
+  series.drop()
+
+
+Pandas DataFrame(1)
+  pd.DataFrame( { columns : [ data ] , columns : [ data ] } )
+  pd.to_datetime()
+  df.rename( columns = { 기존 column , 새로운 column } )
+  df.column이름   |   df['column이름']
+  df [ index Slicing ]
+  df.iloc[ index slicing, column slicing ]
+
+
+Pandas DataFrame(2)
+  df.reset_index() : 기존 인덱스가 컬럼으로 오고 새로운 인덱스를 생성
+  df.set_index( '컬럼명' )
+  df.sort_index()
+   df.sort_values()
+  df[ 열 ]
+  df.loc[ 행, 열 ]
+  df.loc[ 조건식, 열 ]
+  
+Pandas DataFrame(3)
+  axis = 0 : index | axis = 1 : columns
+  df.drop( 'index이름' , axis = 0 )
+  df.drop( 'column이름' , axis = 1 )
+  df.index.tolist()
+  df.column.tolist()
+  df.apply(lambda x: x ** 2)
+  pd.pivot_table(df,index = [], values = [], aggfunc = [])
+  df.groupby([index])[values].agg()
+
+
+s.str.count("a")
+s.str.match("a")
+s.str.lower()
+s.str.upper()
+s.str.len()
+s.str.contains(pattern)
+idx.str.strip()
+idx.str.lstrip()
+idx.str.rstrip()
+df.columns.str.strip()
+dollars.str.replace('-$', '-')
+
