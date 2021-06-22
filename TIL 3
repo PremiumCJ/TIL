@@ -2,3 +2,7 @@ groupby() 함수를 사용하지만, 그 과정이 단계적으로 따로 하는
 앞서 mean() 을 매소드로 사용한 것 부분을 transform() 으로 바꾸고, 거기에 인자로 mean을 넣어주면 된다!
 
 df["User Mean) = df.groupby('User ID)["Purchase"].transform('mean')
+
+Seaborn에서 괄호안 Grid=True를 통해 구간별 격자를 표시할 수 있다
+주피터 노트북에선 하나의 줄에서 가장 아래 것만 출력이 된다
+ 하지만 하나의 줄 안에서 print 구문을 넣으면 가장 아래의 것 + Print 구문도 같이 출력된다
