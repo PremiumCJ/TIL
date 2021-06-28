@@ -1,0 +1,9 @@
+## SQL
+데이터 딕셔너리
+  - 주요 사용자 객체 정보 뷰
+ ** USER_OBJECTS : 모든 객체 정보
+ ** USER_TABLES : 테이블 정보
+    USER_INDEXES: 인덱스 정보
+    USER_CONSTRAINTS : 제약조건
+ ** USER_TAB_COLS : 테이블과 해당 컬럼 정보
+    USER_VIEWS : 뷰 정보
