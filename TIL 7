@@ -1,0 +1,78 @@
+## SQL
+
+
+데이터 입력/수정/삭제 - INSERT, UPDATE, DELETE
+
+SQL의 DML 문은 SELECT, UPDATE, DELETE, MERGE
+
+INSERT - 테이블에 데이터를 신규로 입력
+
+*INSERT ALL... INTO EMP1 INTO EMP2 SELECT...FROM...
+
+       ㄴ> Select와 From 에서 반환하는 값을 EMP 1과 EMP 2에 넣겠다
+
+UPDATE - 이미 저장된 데이터를 수정
+
+UPDATE 테이블명 SET 컬럼1 = 변경값1, 컬럼2 = 변경값2, .... WHERE 조건
+
+WHERE  조건을 만족하는 ROW 만 처리됨, WHERE 절 생략 시 전체 ROW에 대해 컬럼 값 변경
+
+ * 조심해야함, 왜냐하면 전체 데이터가 수정될 수 있음
+
+UPDATE emp SET salary = 0 WHERE salary < 20000;
+
+ㄴ> Salary가 20000보다 작은 값을 0으로 수정하겠다
+
+DELETE - 저장된 데이터를 삭제
+
+MERGE - 조건에 따라 INSERT와 UPDATE 수행
+
+
+
+트랜잭션 처리, Merge 문, 뷰, 데이터 딕셔너리
+
+- 트랜잭션 - SQL에서는 COMMIT, ROLLBACK 문장으로 트랜잭션 처리
+
+    ex) 오류가 났을 경우는 거래 자체가 없었던 것으로 처리
+
+    입금 계좌에 돈이 확인된 다음에야 거래를 성사시킴
+
+    - 데이터 가공 작업 실패나 기타 사유(예: Where 절 없이 Delete 했을 경우)로 인해 작업 전 상태로 가고 싶다면 ROLLBACK 실행  → 커밋까지 했다면 롤백이 안됨
+- MERGE 문 - INSERT와 UPDATE를 한번에 처리
+
+    구문
+
+    MERGE INTO 대상테이블명
+
+    USING 참조테이블 or 서브쿼리
+
+    ON 조인조건
+
+    WHEN MATCHED THEN
+
+    UPDATE SET 컬럼1=값1, 컬럼2 = 값2, ...
+
+    WHEN NOT MATCHED THEN
+
+    INSERT (컬럼 1, 컬럼2, ...)
+
+    VALUES (값1, 값2, ...) ;
+
+- 뷰(View) - 하나 혹은 그 이상의 다른 테이블이나 뷰로 구성된 논리적 객체 (테이블처럼 동작)
+
+    뷰 자체에는 데이터가 저장되어 있지 않음
+
+    - 뷰 생성
+
+        CREATE ON REPLACE VIEW 뷰이름 AS SELECT 문;
+
+    - 뷰 수정
+
+        CREATE ON REPLACE VIEW 뷰이름 AS SELECT 문;
+
+    - 뷰 삭제
+
+        DROP VIEW 뷰이름;
+        
+        
+        
