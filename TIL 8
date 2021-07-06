@@ -1,0 +1,8 @@
+# 파이썬 TIL
+
+plotly.express 패키지를 통해 움직이는 그래프를 만들 수 있음
+
+import plotly.express as px
+
+px.line(data_frame = "oooo", x = "oooo", y= "oooo", animation_frame = "oooo", animation_group = "oooo")
+px.bar, px.area 등등
