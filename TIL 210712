@@ -1,0 +1,45 @@
+# Object 타입의 데이터를 float 형태로 바꾸는 법
+
+1. 일단 "오픈뱅킹공동망" 이라는 컬럼이 null값이 있어 
+    df2["오픈뱅킹공동망"] = df2["오픈뱅킹공동망"].fillna('0') 
+    로 NaN를 모두 0으로 채움   # 이때는 적용된 것이 아님
+    그리고 그 채운것을 df2["오픈뱅킹공동망"] 여기로 넣어 적용 # 이때부터 적용
+    
+    def g(a):
+    a = a.split(',')
+    if len(a) > 1:
+        return float(str(a[0]) + str(a[1]))
+    else:
+        return a[0]
+        
+    위의 함수로 "오픈뱅킹공동망" 내의 값들에서 1이상의 값들을 , 를 기준으로 split하고 #이때는 아직 str 타입
+    return에서 float(    ) 으로 값들을 str에서 float 형태로 바꿈  # 이때부터 float 형태로 바꾸겠다
+    else는 0 값들은 > 1 조건에 들어가지 않음으로 split 되지않고 0 반환
+    
+    df2["오픈뱅킹공동망"] = df2["오픈뱅킹공동망"].map(g)
+    이것으로 오픈뱅킹공동망 내의 값들을 map 을 통해서 위의 함수를 적용하고
+    
+    df2["오픈뱅킹공동망"] = df2["오픈뱅킹공동망"].astype("float")
+    astype으로 "float" 형태로 완전히 적용
+    
+    
+    
+    
+    def g(a):
+    a = a.split(',')
+    if len(a) > 1:
+        return float(str(a[0]) + str(a[1]))
+    else:
+        return a[0]
+        
+    
+    def get_float_df(df, func):
+    for i in df.columns:
+        if df[i].dtypes == "object":
+            df[i] = df[i].fillna('0')
+            df[i] = df[i].map(func)
+            df[i] = df[i].astype("float")
+    return df
+    
+    이 함수를 사용하면 앞으로 어떠한 object 타입의 데이터 프레임도 모두 float 형태로 변환 가능
+
