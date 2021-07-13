@@ -25,7 +25,7 @@
     
     
     
-    def g(a):
+    def func(a):
     a = a.split(',')
     if len(a) > 1:
         return float(str(a[0]) + str(a[1]))
@@ -40,6 +40,9 @@
             df[i] = df[i].map(func)
             df[i] = df[i].astype("float")
     return df
+    
+    get_float_df(df, func)
+    
     
     이 함수를 사용하면 앞으로 어떠한 object 타입의 데이터 프레임도 모두 float 형태로 변환 가능
 
